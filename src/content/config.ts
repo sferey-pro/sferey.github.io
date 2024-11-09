@@ -19,4 +19,22 @@ const authors = defineCollection({
 	}),
 });
 
-export const collections = { blog, authors };
+const work = defineCollection({
+	type: 'content',
+	schema: () =>
+		z.object({
+			title: z.string(),
+			logoImg: z.string(),
+			metadata: z.object({
+				job_description: z.string(),
+				excerpt: z.string().optional(),
+			}),
+			startedDate: z.coerce.date(),
+			endedDate: z.coerce.date().optional(),
+			tags: z.array(z.string()).optional(),
+			website: z.string().url().optional(),
+			linkedin: z.string().url().optional(),
+		}),
+});
+
+export const collections = { blog, authors, work };
