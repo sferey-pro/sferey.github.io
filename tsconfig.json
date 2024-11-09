@@ -4,9 +4,12 @@
 		"strictNullChecks": true,
 		"baseUrl": ".",
 		"paths": {
+			"@data": ["src/data/info"],
+			"@assets/*": ["src/assets/*"],
 			"@components/*": ["src/components/*"],
 			"@layouts/*": ["src/layouts/*"],
-			"@pages/*": ["src/pages/*"]
+			"@pages/*": ["src/pages/*"],
+			"@partials/*": ["src/partials/*"],
 		},
 		"plugins": [
 			{
