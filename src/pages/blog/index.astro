@@ -73,7 +73,10 @@ const posts = (await getCollection('blog')).sort(
 							{
 								posts.map((post) => (
 									<li class="group">
-										<a class="text-transition text-fore-primary group-hover:text-accent" href={`/blog/${post.slug}/`}>
+										<a
+											class="text-transition text-fore-primary group-hover:text-accent"
+											href={`/blog/${post.slug}/`}
+										>
 											<img
 												class="shadow group-hover:shadow-lg group-hover:shadow-black"
 												width={720}

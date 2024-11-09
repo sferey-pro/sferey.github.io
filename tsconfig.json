@@ -11,7 +11,7 @@
 			"@layouts/*": ["src/layouts/*"],
 			"@pages/*": ["src/pages/*"],
 			"@lib/*": ["src/lib/*"],
-			"@partials/*": ["src/partials/*"],
+			"@partials/*": ["src/partials/*"]
 		},
 		"plugins": [
 			{

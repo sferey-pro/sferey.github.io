@@ -6,7 +6,6 @@ import List from '@components/mdx/List.astro';
 import ListItem from '@components/mdx/ListItem.astro';
 import Link from '@components/mdx/Link.astro';
 
-
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
 	return posts.map((post) => ({
@@ -21,7 +20,6 @@ const components = {
 	li: ListItem,
 	a: Link,
 };
-
 
 type Props = CollectionEntry<'blog'>;
 
