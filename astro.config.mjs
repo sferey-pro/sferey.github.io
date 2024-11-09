@@ -2,15 +2,17 @@
 import { defineConfig } from 'astro/config';
 
 import tailwind from '@astrojs/tailwind';
+import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://sferey.com',
-	server: {
-		port: 4321,
-		host: true,
-	},
-	integrations: [
-		tailwind({ applyBaseStyles: false }),
-	],
+    site: 'https://sferey.com',
+    server: {
+        port: 4321,
+        host: true,
+    },
+    integrations: [tailwind({ applyBaseStyles: false }), mdx()],
+    markdown: {
+        syntaxHighlight: false,
+    },
 });
