@@ -6,6 +6,7 @@ import my_avatar from '@assets/images/my_avatar.png';
 import Layout from '@layouts/Layout.astro';
 import IntroSection from '@partials/IntroSection.astro';
 import AboutMeSection from '@partials/AboutMeSection.astro';
+import ToolboxSection from '@partials/ToolboxSection.astro';
 import GradientText from '@components/GradientText.astro';
 ---
 
@@ -19,4 +20,5 @@ import GradientText from '@components/GradientText.astro';
 		<Fragment slot="subHeading" set:html={info.jobDescription} />
 	</IntroSection>
 	<AboutMeSection bodyText="Hello" />
+	<ToolboxSection />
 </Layout>
