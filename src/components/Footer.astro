@@ -1,6 +1,5 @@
 ---
-import Icon from '@components/Icon.astro';
-
+import { Icon } from 'astro-icon/components';
 import { SITE_TITLE } from '../consts';
 const today = new Date();
 ---
@@ -22,7 +21,7 @@ const today = new Date();
 				target="_blank"
 			>
 				<span class="sr-only">Go to GitHub repo</span>
-				<Icon icon="github-logo" size="2em" />
+				<Icon name="line-md:github-loop" size="2em" />
 			</a>
 		</li>
 		<li>
@@ -32,7 +31,7 @@ const today = new Date();
 				target="_blank"
 			>
 				<span class="sr-only">Go to GitHub repo</span>
-				<Icon icon="linkedin-logo" size="2em" />
+				<Icon name="line-md:linkedin" size="2em" />
 			</a>
 		</li>
 	</ul>

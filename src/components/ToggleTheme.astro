@@ -1,17 +1,18 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 // https://jklakus.co.uk/blogs/astro-darktheme
-import Icon from './Icon.astro';
 ---
 
 <div class="inline-flex items-center">
 	<label
-		class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600/80"
+		class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-slate-100 text-fore-primary hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600/80"
 		for="light-switch"
 	>
 		<button id="light-switch">
 			<span class="sr-only">Switch to light / dark version</span>
-			<Icon class="h-4 w-4 dark:hidden" icon="sun" />
-			<Icon class="hidden h-4 w-4 dark:block" icon="moon-stars" />
+			<Icon class="h-4 w-4 dark:hidden" name="line-md:sunny-loop" />
+			<Icon class="hidden h-4 w-4 dark:block" name="line-md:moon-loop" />
 		</button>
 	</label>
 </div>

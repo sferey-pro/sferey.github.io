@@ -1,5 +1,5 @@
 ---
-import Icon from './Icon.astro';
+import { Icon } from 'astro-icon/components';
 
 interface Props {
 	resume?: string;
@@ -22,7 +22,7 @@ const { resume, email, github, website, linkedin } = Astro.props;
 				class="mr-4 flex w-fit cursor-pointer items-center rounded border-2 border-accent px-4 py-1 text-fore-primary transition-colors hover:text-accent"
 			>
 				<span class="mr-2">
-					<Icon icon="scroll" size="1.5em" />
+					<Icon name="mdi:scroll-text-outline" size="1.5em" />
 				</span>
 				Curriculum Vitae
 			</a>
@@ -34,7 +34,7 @@ const { resume, email, github, website, linkedin } = Astro.props;
 			website && (
 				<a href={website} class="group cursor-pointer" aria-label="Website" title="Website">
 					<Icon
-						icon="globe"
+						name="mdi:globe"
 						size="1.5em"
 						class:list={'text-xl text-fore-subtle transition-transform group-hover:-translate-y-2'}
 					/>
@@ -45,7 +45,7 @@ const { resume, email, github, website, linkedin } = Astro.props;
 			email && (
 				<a href={`mailto:${email}`} class="group cursor-pointer" aria-label="Email" title="Email">
 					<Icon
-						icon="at"
+						name="line-md:at"
 						size="1.5em"
 						class:list={'text-xl text-fore-subtle transition-transform group-hover:-translate-y-2'}
 					/>
@@ -61,7 +61,7 @@ const { resume, email, github, website, linkedin } = Astro.props;
 					title="Github"
 				>
 					<Icon
-						icon="github-logo"
+						name="line-md:github-loop"
 						size="1.5em"
 						class:list={'text-xl text-fore-subtle transition-transform group-hover:-translate-y-2'}
 					/>
@@ -77,7 +77,7 @@ const { resume, email, github, website, linkedin } = Astro.props;
 					title="Linkedin"
 				>
 					<Icon
-						icon="linkedin-logo"
+						name="line-md:linkedin"
 						size="1.5em"
 						class:list={'text-xl text-fore-subtle transition-transform group-hover:-translate-y-2'}
 					/>

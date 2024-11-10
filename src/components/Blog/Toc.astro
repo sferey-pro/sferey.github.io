@@ -1,5 +1,6 @@
 ---
-import Icon from '@components/Icon.astro';
+import { Icon } from 'astro-icon/components';
+
 const props = Astro.props;
 
 let i = 1;
@@ -21,7 +22,7 @@ let html = (await Astro.slots.render('default')).replaceAll('<li', () => `<li st
 	>
 		<summary class="flex w-fit items-center px-4 pt-4 text-2xl">
 			<div class="mr-4 rounded-full bg-black p-2 text-white shadow-lg ring-1">
-				<Icon icon="notebook" />
+				<Icon name="line-md:list-indented" />
 			</div>
 			<span class="hidden">Sommaire</span>
 		</summary>
