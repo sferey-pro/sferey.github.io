@@ -4,7 +4,9 @@
 		"unifiedjs.vscode-mdx",
 		"ms-vscode.vscode-typescript-next",
 		"ms-azuretools.vscode-docker",
-		"dbaeumer.vscode-eslint"
+		"dbaeumer.vscode-eslint",
+		"esbenp.prettier-vscode",
+		"editorconfig.editorconfig"
 	],
 	"unwantedRecommendations": []
 }
