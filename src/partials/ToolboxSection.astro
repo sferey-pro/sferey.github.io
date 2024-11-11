@@ -1,5 +1,4 @@
 ---
-import { devIcons } from '@configs/dev-icons';
 import { Icon } from 'astro-icon/components';
 ---
 
@@ -10,7 +9,7 @@ import { Icon } from 'astro-icon/components';
 		</div>
 		<h3 class="w-fit border-b border-b-slate-200 text-2xl md:text-3xl">Compétences</h3>
 	</span>
-	<ul class="flex flex-wrap items-center justify-center">
+	<ul class="flex flex-wrap items-center justify-center text-fore-primary">
 		{
 			[
 				{ name: 'html5', label: 'HTML 5' },
@@ -20,7 +19,8 @@ import { Icon } from 'astro-icon/components';
 				{ name: 'phpunit', label: 'PHPUnit' },
 				{ name: 'git', label: 'Git' },
 				{ name: 'zend', label: 'Zend Framework' },
-				{ name: 'symfony', label: 'Symfony' },
+				{ name: 'symfony-light', label: 'Symfony', mode: 'light' },
+				{ name: 'symfony-dark', label: 'Symfony', mode: 'dark' },
 				{ name: 'postgresql', label: 'PostgreSQL' },
 				{ name: 'docker', label: 'Docker' },
 				{ name: 'nodejs', label: 'Node.js' },
@@ -29,14 +29,19 @@ import { Icon } from 'astro-icon/components';
 				{ name: 'graphql', label: 'GraphQL' },
 				{ name: 'tailwindcss', label: 'TailwindCSS' },
 				{ name: 'go', label: 'GO' },
-				{ name: 'googlecloud', label: 'Googgle Cloud' },
-				{ name: 'astro', label: 'Astro' },
+				{ name: 'googlecloud', label: 'Google Cloud' },
+				{ name: 'astro-light', label: 'Astro', mode: 'light' },
+				{ name: 'astro-dark', label: 'Symfony', mode: 'dark' },
 			].map((icon) => (
 				<li class="flex items-center">
 					<Icon
 						data-tooltip-target={`tooltip-${icon.name}`}
 						name={icon.name}
-						class="mb-4 me-4 md:me-6"
+						class:list={[
+							'mb-4 me-4 md:me-6',
+							icon.mode ? icon.mode === 'dark' && 'hidden dark:block' : '',
+							icon.mode ? icon.mode === 'light' && 'dark:hidden' : '',
+						]}
 						width="60"
 						height="60"
 					/>

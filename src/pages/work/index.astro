@@ -5,8 +5,8 @@ import Footer from '@components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '@components/FormattedDate.astro';
-import Tags from '@components/Tags.astro';
-import { ColorTags } from '@components/ColorPaths';
+import Tags from '@components/Work/Tags.astro';
+import { ColorTags } from '@configs/ColorPaths';
 
 const workEntries = (await getCollection('work')).sort(
 	(a, b) => b.data.startedDate.valueOf() - a.data.startedDate.valueOf(),
@@ -64,9 +64,7 @@ const dateOptions: object = {
 											</p>
 											<div class="flex">
 												{workEntry.data.tags.map((tag) => (
-													<Tags color={ColorTags.AMBER} class="mb-4 me-4 md:me-6">
-														{tag}
-													</Tags>
+													<Tags label={tag} class="mb-4 me-4 md:me-6" />
 												))}
 											</div>
 										</div>

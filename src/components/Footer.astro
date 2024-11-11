@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { SITE_TITLE } from '../consts';
+import Socials from './Socials.astro';
 const today = new Date();
 ---
 
@@ -11,28 +12,15 @@ const today = new Date();
 		>&copy; {today.getFullYear()}
 		<a href={Astro.site} class="hover:underline">{SITE_TITLE}</a>™. All rights reserved.
 	</span>
-	<ul
+
+	<div
 		class="mt-3 flex flex-wrap items-center text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0"
 	>
-		<li>
-			<a
-				href="https://github.com/Siniliote/my-project"
-				class="me-4 hover:underline md:me-6"
-				target="_blank"
-			>
-				<span class="sr-only">Go to GitHub repo</span>
-				<Icon name="line-md:github-loop" size="2em" />
-			</a>
-		</li>
-		<li>
-			<a
-				href="https://github.com/Siniliote/my-project"
-				class="me-4 hover:underline md:me-6"
-				target="_blank"
-			>
-				<span class="sr-only">Go to GitHub repo</span>
-				<Icon name="line-md:linkedin" size="2em" />
-			</a>
-		</li>
-	</ul>
+		<Socials
+			resume="/assets/CV_FEREY.pdf"
+			email="sferey.pro@gmail.com"
+			github="Siniliote/puddle"
+			linkedin="sferey"
+		/>
+	</div>
 </footer>

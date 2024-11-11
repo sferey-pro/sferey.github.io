@@ -26,6 +26,7 @@ import { Icon } from 'astro-icon/components';
 
 			const isDark = element.classList.contains('dark');
 			localStorage.setItem('theme', isDark ? 'dark' : 'light');
+			element.style.colorScheme = isDark ? 'dark' : 'light';
 		};
 
 		toggleBtn?.addEventListener('click', handleToggleClick);
@@ -54,6 +55,7 @@ import { Icon } from 'astro-icon/components';
 			document.documentElement.classList.add('dark');
 		}
 
+		document.documentElement.style.colorScheme = theme || 'light';
 		window.localStorage.setItem('theme', theme || 'light');
 	};
 

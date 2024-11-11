@@ -5,6 +5,7 @@ import Heading from '@components/mdx/Heading.astro';
 import List from '@components/mdx/List.astro';
 import ListItem from '@components/mdx/ListItem.astro';
 import Link from '@components/mdx/Link.astro';
+import Tags from '@components/Work/Tags.astro';
 
 export async function getStaticPaths() {
 	const works = await getCollection('work');
@@ -19,6 +20,7 @@ const components = {
 	ul: List,
 	li: ListItem,
 	a: Link,
+	Tag: Tags,
 };
 
 type Props = CollectionEntry<'blog'>;

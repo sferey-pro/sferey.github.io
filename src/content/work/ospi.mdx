@@ -17,6 +17,9 @@ website: 'https://ospi.fr'
 linkedin: 'https://www.linkedin.com/company/ospi-care/'
 ---
 
+import Tags from '@components/Tags.astro';
+import { ColorTags } from '@configs/ColorPaths';
+
 ## Introduction
 
 Groupe PSIH est une entreprise française fondée en 1998 par Ludovic de Saint Jean et basée à Lyon. Elle est spécialisée dans les logiciels décisionnels pour le secteur de la santé.
@@ -39,9 +42,12 @@ J’ai également travaillé sur la refonte du logiciel principal de génératio
 
 ## Outils utilisés
 
-- Symfony 6
-- VueJs
-- MariaDB
+<div class="mb-6">
+	<Tag name="docker" label="Docker" />
+	<Tag name="symfony" label="Symfony 6" />
+	<Tag name="mariadb" label="MariaDB" />
+	<Tag name="vuejs" label="VueJs" />
+</div>
 
 ## Challenges
 
