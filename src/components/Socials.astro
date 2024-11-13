@@ -19,7 +19,7 @@ const { resume, email, github, website, linkedin } = Astro.props;
 				href={resume}
 				target="_blank"
 				rel="noreferrer"
-				class="mr-4 flex w-fit cursor-pointer items-center rounded border-2 border-accent px-4 py-1 text-fore-primary transition-colors hover:text-accent"
+				class="mr-4 flex w-fit cursor-pointer items-center rounded border-2 border-accent px-4 py-1 text-fore-primary transition-colors hover:bg-accent hover:text-white"
 			>
 				<span class="mr-2">
 					<Icon name="mdi:scroll-text-outline" size="1.5em" />
@@ -32,7 +32,13 @@ const { resume, email, github, website, linkedin } = Astro.props;
 	<span class="ml-2 flex gap-x-5">
 		{
 			website && (
-				<a href={website} class="group cursor-pointer" aria-label="Website" title="Website">
+				<a
+					href={website}
+					class="group cursor-pointer"
+					aria-label="Website"
+					title="Website"
+					target="_blank"
+				>
 					<Icon
 						name="mdi:globe"
 						size="1.5em"
@@ -43,7 +49,13 @@ const { resume, email, github, website, linkedin } = Astro.props;
 		}
 		{
 			email && (
-				<a href={`mailto:${email}`} class="group cursor-pointer" aria-label="Email" title="Email">
+				<a
+					href={`mailto:${email}`}
+					class="group cursor-pointer"
+					aria-label="Email"
+					title="Email"
+					target="_blank"
+				>
 					<Icon
 						name="line-md:at"
 						size="1.5em"
@@ -59,6 +71,7 @@ const { resume, email, github, website, linkedin } = Astro.props;
 					class="group cursor-pointer"
 					aria-label="Github"
 					title="Github"
+					target="_blank"
 				>
 					<Icon
 						name="line-md:github-loop"
@@ -75,6 +88,7 @@ const { resume, email, github, website, linkedin } = Astro.props;
 					class="group cursor-pointer"
 					aria-label="Linkedin"
 					title="Linkedin"
+					target="_blank"
 				>
 					<Icon
 						name="line-md:linkedin"

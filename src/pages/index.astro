@@ -12,14 +12,21 @@ import WorksSection from '@partials/WorksSection.astro';
 ---
 
 <Layout title="Mon projet">
-	<IntroSection avatar={my_avatar} socials="">
-		<Fragment slot="heading">
-			Salut, je m'appelle <GradientText from="from-[#4f39fa]" to="to-[#da62c4]">
-				{info.name}
-			</GradientText> 👋
-		</Fragment>
-		<Fragment slot="subHeading" set:html={info.jobDescription} />
-	</IntroSection>
+	<div class="rounded rounded-t-2xl bg-gradient-to-b from-white dark:from-slate-600">
+		<div class="py-5 text-center md:py-16 md:text-start">
+			<div class="items-center justify-self-center p-2">
+				<IntroSection avatar={my_avatar} socials="">
+					<Fragment slot="heading">
+						Salut, je m'appelle <GradientText from="from-[#4f39fa]" to="to-[#da62c4]"
+							>{info.shortName}</GradientText
+						> 👋
+					</Fragment>
+					<Fragment slot="subHeading" set:html={info.intro} />
+				</IntroSection>
+			</div>
+		</div>
+	</div>
+
 	<AboutMeSection bodyText="Hello" />
 	<ToolboxSection />
 	<WorksSection />

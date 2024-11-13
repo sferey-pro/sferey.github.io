@@ -1,54 +1,78 @@
 ---
-import { SITE_TITLE } from '../consts';
-import { Image } from 'astro:assets';
+import { site } from '@data';
+
 import HeaderLink from '@components/HeaderLink.astro';
-import ToggleTheme from '@components/ToggleTheme.astro';
-import my_logo from '@assets/images/my_logo.svg';
+import DarkModeToggle from './DarkModeToggle.astro';
 ---
 
-<nav
-	class="start-0 top-0 z-20 w-full border-b border-gray-200 bg-white dark:border-gray-600 dark:bg-gray-900"
->
+<nav class="border-gray-200 bg-stone-100 dark:bg-slate-800">
 	<div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
-		<a href={Astro.site} class="flex items-center space-x-3 rtl:space-x-reverse">
-			<Image width="50" height="50" class="h-8" src={my_logo} alt="sferey.com" />
-			<span class="self-center whitespace-nowrap text-2xl font-semibold dark:text-white"
-				>{SITE_TITLE}</span
+		<a href={Astro.site} class="flex items-center space-x-3 text-fore-primary rtl:space-x-reverse">
+			<svg
+				version="1.1"
+				width="50"
+				height="50"
+				class="fill-current hover:fill-blue-700"
+				xmlns="http://www.w3.org/2000/svg"
+				xmlns:xlink="http://www.w3.org/1999/xlink"
+				x="0px"
+				y="0px"
+				viewBox="0 0 1000 1000"
+				enable-background="new 0 0 1000 1000"
+				xml:space="preserve"
+			>
+				<g
+					><g
+						><path d="M654.7,680.5l77.4,77.4L990,500L732.1,242.1l-77.4,77.4L835.3,500L654.7,680.5z"
+						></path><path
+							d="M345.3,319.5l-77.4-77.4L10,500l257.9,257.9l77.4-77.4L164.7,500L345.3,319.5z"
+						></path><path d="M549.4,208.7l56,15.3L450.7,791.3l-56-15.3L549.4,208.7L549.4,208.7z"
+						></path></g
+					></g
+				>
+			</svg>
+			<span class="self-center whitespace-nowrap text-2xl font-semibold dark:text-fore-primary"
+				>{site.title}</span
 			>
 		</a>
-		<div class="flex space-x-3 md:order-2 md:space-x-0 rtl:space-x-reverse">
-			<ToggleTheme />
-			<button
-				data-collapse-toggle="navbar-sticky"
-				type="button"
-				class="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
-				aria-controls="navbar-sticky"
-				aria-expanded="false"
+
+		<button
+			data-collapse-toggle="navbar-default"
+			type="button"
+			class="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
+			aria-controls="navbar-default"
+			aria-expanded="false"
+		>
+			<span class="sr-only">Open main menu</span>
+			<svg
+				class="h-5 w-5"
+				aria-hidden="true"
+				xmlns="http://www.w3.org/2000/svg"
+				fill="none"
+				viewBox="0 0 17 14"
 			>
-				<span class="sr-only">Open main menu</span>
-				<svg
-					class="h-5 w-5"
-					aria-hidden="true"
-					xmlns="http://www.w3.org/2000/svg"
-					fill="none"
-					viewBox="0 0 17 14"
-				>
-					<path
-						stroke="currentColor"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M1 1h15M1 7h15M1 13h15"></path>
-				</svg>
-			</button>
-		</div>
-		<div class="hidden w-full items-center justify-between md:order-1 md:flex md:w-auto">
+				<path
+					stroke="currentColor"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M1 1h15M1 7h15M1 13h15"></path>
+			</svg>
+		</button>
+		<div class="hidden w-full md:block md:w-auto" id="navbar-default">
 			<ul
-				class="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 font-medium dark:border-gray-700 dark:bg-gray-800 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:p-0 md:dark:bg-gray-900 rtl:space-x-reverse"
+				class="m mt-4 flex flex-col items-center rounded-lg border border-gray-100 p-4 font-medium dark:border-gray-700 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0 rtl:space-x-reverse"
 			>
-				<li><HeaderLink href="/">Accueil</HeaderLink></li>
-				<li><HeaderLink href="/blog">Blog</HeaderLink></li>
-				<li><HeaderLink href="/work">Parcours</HeaderLink></li>
+				{
+					site.pages.map((page) => (
+						<li>
+							<HeaderLink href={page.href}>{page.title}</HeaderLink>
+						</li>
+					))
+				}
+				<li>
+					<DarkModeToggle />
+				</li>
 			</ul>
 		</div>
 	</div>

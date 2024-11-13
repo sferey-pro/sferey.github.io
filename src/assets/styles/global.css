@@ -23,7 +23,7 @@ body {
 }
 
 .dark {
-	--color-fore-primary: hsla(214, 32%, 91%);
+	--color-fore-primary: rgb(255, 255, 255);
 	--color-fore-secondary: hsla(214, 32%, 91%);
 	--color-fore-subtle: hsla(214, 20%, 69%);
 
@@ -31,7 +31,7 @@ body {
 	--color-back-secondary: hsla(221, 39%, 8%);
 	--color-back-subtle: hsla(221, 39%, 16%);
 
-	--color-accent: hsla(201, 100%, 63%);
+	--color-accent: rgb(29 78 216);
 	--color-second-accent: hsla(243, 78%, 68%);
 	--color-back-accent: hsla(172, 67%, 70%);
 }

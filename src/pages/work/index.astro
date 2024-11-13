@@ -1,12 +1,12 @@
 ---
 import Metadata from '@components/Metadata.astro';
-import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { SITE_TITLE, SITE_DESCRIPTION } from '@consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '@components/FormattedDate.astro';
 import Tags from '@components/Work/Tags.astro';
-import { ColorTags } from '@configs/ColorPaths';
+import Navigation from '@components/Navigation.astro';
+import BreadCrumbs from '@components/BreadCrumbs.astro';
 
 const workEntries = (await getCollection('work')).sort(
 	(a, b) => b.data.startedDate.valueOf() - a.data.startedDate.valueOf(),
@@ -24,58 +24,67 @@ const dateOptions: object = {
 		<Metadata title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-		<Header />
-		<div class="flex overflow-hidden bg-gray-50 py-16 dark:bg-gray-900">
-			<main
-				transition:animate="fade"
-				class="container mx-auto flex min-h-screen max-w-screen-lg flex-grow flex-col px-5 pt-16 md:px-12 lg:px-20"
+		<div class="min-h-screen bg-stone-100 dark:bg-slate-800">
+			<Navigation />
+			<div
+				class="container mx-auto flex min-h-screen max-w-screen-lg flex-grow flex-col px-5 py-8 md:px-12 lg:px-20"
 			>
-				<section>
-					<ul>
-						{
-							workEntries.map((workEntry) => (
-								<li class="group mb-10 ms-4">
-									<a
-										href={`/work/${workEntry.slug}`}
-										class="flex flex-col items-center rounded-lg border-gray-200 border-b-accent bg-white shadow hover:bg-gray-100 group-hover:border-b dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 md:flex-row"
-									>
-										<div class="flex flex-col justify-between p-4 leading-normal">
-											<div class="flex-row">
-												<FormattedDate
-													class="mb-1 text-sm font-normal capitalize leading-none text-gray-400 dark:text-gray-500"
-													date={workEntry.data.startedDate}
-													options={dateOptions}
-												/>
-												—
-												<span class="mb-1 text-sm font-normal capitalize leading-none text-gray-400 dark:text-gray-500">
-													{workEntry.data.endedDate ? (
-														<FormattedDate date={workEntry.data.endedDate} options={dateOptions} />
-													) : (
-														"Aujourd'hui"
-													)}
-												</span>
-											</div>
+				<main transition:animate="fade">
+					<BreadCrumbs title="Parcours" parentLink="/" />
+					<section class="px-4 2xl:px-0">
+						<ul>
+							{
+								workEntries.map((workEntry) => (
+									<li class="group mb-10 ms-4">
+										<a
+											disabled="disabled"
+											href={`/work/${workEntry.slug}`}
+											class="flex flex-col items-center rounded-lg border-b-2 border-gray-200 border-b-accent bg-white shadow hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-900 md:flex-row"
+										>
+											<div class="flex flex-col justify-between p-4 leading-normal">
+												<div class="flex-row text-gray-400">
+													<FormattedDate
+														class="mb-1 text-sm font-normal capitalize leading-none text-gray-400 dark:text-gray-500"
+														date={workEntry.data.startedDate}
+														options={dateOptions}
+													/>
+													—
+													<span class="mb-1 text-sm font-normal capitalize leading-none text-gray-400 dark:text-gray-500">
+														{workEntry.data.endedDate ? (
+															<FormattedDate
+																date={workEntry.data.endedDate}
+																options={dateOptions}
+															/>
+														) : (
+															"Aujourd'hui"
+														)}
+													</span>
+												</div>
 
-											<h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-												{workEntry.data.title}
-											</h3>
-											<p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
-												{workEntry.data.metadata.excerpt}
-											</p>
-											<div class="flex">
-												{workEntry.data.tags.map((tag) => (
-													<Tags label={tag} class="mb-4 me-4 md:me-6" />
-												))}
+												<h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+													{workEntry.data.title}
+												</h3>
+												<p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
+													{workEntry.data.metadata.excerpt}
+												</p>
+												<div class="flex">
+													{workEntry.data.tags.map((tag) => (
+														<Tags
+															label={tag}
+															class="mb-4 me-4 bg-back-primary text-fore-primary md:me-6"
+														/>
+													))}
+												</div>
 											</div>
-										</div>
-									</a>
-								</li>
-							))
-						}
-					</ul>
-				</section>
-			</main>
+										</a>
+									</li>
+								))
+							}
+						</ul>
+					</section>
+				</main>
+			</div>
+			<Footer />
 		</div>
-		<Footer />
 	</body>
 </html>

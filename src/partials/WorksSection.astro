@@ -20,14 +20,14 @@ const dateOptions: object = {
 		</div>
 		<h3 class="w-fit border-b border-b-slate-200 text-2xl md:text-3xl">Parcours professionnel</h3>
 	</span>
-	<ol class="relative border-s border-gray-200 dark:border-gray-700">
+	<ol class="relative max-w-screen-lg border-s border-gray-200 dark:border-gray-700">
 		{
 			workEntries.map((workEntry) => (
-				<li class="group mb-10 ms-4">
-					<a href={`/work/${workEntry.slug}`} class="border-b-accent group-hover:border-b">
+				<li class="group mb-5 ms-4 border-b border-transparent hover:border-accent">
+					<a href={`/work/${workEntry.slug}`} class="border-b-accent">
 						<div class="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-200 group-hover:bg-accent dark:border-gray-900 dark:bg-gray-700" />
 						<FormattedDate
-							class="mb-1 text-sm font-normal capitalize leading-none text-gray-400 dark:text-gray-500"
+							class="mb-1 text-sm font-normal capitalize leading-none text-gray-400 group-hover:text-gray-900 dark:text-gray-500 dark:group-hover:text-white"
 							date={workEntry.data.startedDate}
 							options={dateOptions}
 						/>

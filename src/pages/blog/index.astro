@@ -1,10 +1,11 @@
 ---
 import Metadata from '@components/Metadata.astro';
-import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { SITE_TITLE, SITE_DESCRIPTION } from '@consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '@components/FormattedDate.astro';
+import Navigation from '@components/Navigation.astro';
+import BreadCrumbs from '@components/BreadCrumbs.astro';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -61,14 +62,14 @@ const posts = (await getCollection('blog')).sort(
 		</style>
 	</head>
 	<body>
-		<Header />
-		<div class="flex overflow-hidden bg-gray-50 py-16 dark:bg-gray-900">
-			<main
-				transition:animate="fade"
-				class="container mx-auto flex min-h-screen max-w-screen-lg flex-grow flex-col px-5 pt-16 md:px-12 lg:px-20"
+		<div class="min-h-screen bg-stone-100 dark:bg-slate-800">
+			<Navigation />
+			<div
+				class="container mx-auto flex min-h-screen max-w-screen-lg flex-grow flex-col px-5 py-8 md:px-12 lg:px-20"
 			>
-				<div class="px-4 pt-6 2xl:px-0">
-					<section>
+				<main transition:animate="fade">
+					<BreadCrumbs title="Blog" parentLink="/" />
+					<section class="px-4 2xl:px-0">
 						<ul>
 							{
 								posts.map((post) => (
@@ -94,9 +95,9 @@ const posts = (await getCollection('blog')).sort(
 							}
 						</ul>
 					</section>
-				</div>
-			</main>
+				</main>
+			</div>
+			<Footer />
 		</div>
-		<Footer />
 	</body>
 </html>

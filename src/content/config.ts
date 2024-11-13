@@ -34,6 +34,7 @@ const work = defineCollection({
 			tags: z.array(z.string()).optional(),
 			website: z.string().url().optional(),
 			linkedin: z.string().url().optional(),
+			disabled: z.boolean().default(false),
 		}),
 });
 

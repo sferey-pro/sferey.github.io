@@ -1,11 +1,12 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import Metadata from '@components/Metadata.astro';
-import Header from '@components/Header.astro';
 import Title from '@components/Blog/Title.astro';
 import HeroImage from '@components/HeroImage.astro';
 import Prose from '@components/Prose.astro';
 import Footer from '@components/Footer.astro';
+import Navigation from '@components/Navigation.astro';
+import BreadCrumbs from '@components/BreadCrumbs.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
@@ -17,21 +18,24 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<Metadata title={title} description={description} />
 	</head>
 	<body>
-		<Header />
-		<div class="flex overflow-hidden bg-gray-50 py-16 dark:bg-gray-900">
-			<main
-				class="container mx-auto flex min-h-screen max-w-screen-lg flex-grow flex-col px-5 pt-16 md:px-12 lg:px-20"
+		<div class="min-h-screen bg-stone-100 dark:bg-slate-800">
+			<Navigation />
+			<div
+				class="container mx-auto flex min-h-screen max-w-screen-lg flex-grow flex-col px-5 py-8 md:px-12 lg:px-20"
 			>
-				<article class="px-4 pt-6 2xl:px-0">
-					{heroImage && <HeroImage {heroImage} />}
-					<Title {title} {pubDate} {updatedDate} />
-					<Prose>
-						<slot />
-					</Prose>
-				</article>
-			</main>
+				<main transition:animate="fade">
+					<BreadCrumbs {title} parent="Blog" parentLink="/blog" />
+					<article class="px-4 2xl:px-0">
+						{heroImage && <HeroImage {heroImage} />}
+						<Title {title} {pubDate} {updatedDate} />
+						<Prose>
+							<slot />
+						</Prose>
+					</article>
+				</main>
+			</div>
+			<Footer />
 		</div>
-		<Footer />
 	</body>
 </html>
 

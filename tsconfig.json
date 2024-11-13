@@ -4,7 +4,8 @@
 		"strictNullChecks": true,
 		"baseUrl": ".",
 		"paths": {
-			"@data": ["src/data/info"],
+			"@consts": ["src/consts.ts"],
+			"@data": ["src/data/info.ts"],
 			"@configs/*": ["src/configs/*"],
 			"@assets/*": ["src/assets/*"],
 			"@components/*": ["src/components/*"],
