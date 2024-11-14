@@ -61,11 +61,11 @@ import DarkModeToggle from './DarkModeToggle.astro';
 		</button>
 		<div class="hidden w-full md:block md:w-auto" id="navbar-default">
 			<ul
-				class="m mt-4 flex flex-col items-center rounded-lg border border-gray-100 p-4 font-medium dark:border-gray-700 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0 rtl:space-x-reverse"
+				class="m mt-4 flex flex-col items-center rounded-lg border border-gray-100 p-1 p-4 text-center font-medium dark:border-gray-700 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0 rtl:space-x-reverse"
 			>
 				{
 					site.pages.map((page) => (
-						<li>
+						<li class="w-full p-1">
 							<HeaderLink href={page.href}>{page.title}</HeaderLink>
 						</li>
 					))

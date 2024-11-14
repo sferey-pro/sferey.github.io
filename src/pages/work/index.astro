@@ -36,10 +36,10 @@ const dateOptions: object = {
 						<ul>
 							{
 								workEntries.map((workEntry) => (
-									<li class="group mb-10 ms-4">
+									<li class="group mb-10">
 										<a
 											href={`/work/${workEntry.slug}`}
-											class="flex flex-col items-center rounded-lg border-b-2 border-gray-200 border-b-accent bg-white shadow hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-900 md:flex-row"
+											class="flex flex-col rounded-lg border-b-2 border-gray-200 border-b-accent bg-white shadow hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-900 md:flex-row"
 										>
 											<div class="flex flex-col justify-between p-4 leading-normal">
 												<div class="flex-row text-gray-400">
@@ -67,7 +67,7 @@ const dateOptions: object = {
 												<p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
 													{workEntry.data.metadata.excerpt}
 												</p>
-												<div class="flex">
+												<div>
 													{workEntry.data.tags &&
 														workEntry.data.tags.map((tag) => (
 															<Tags color={ColorTags.NEUTRAL}>{tag}</Tags>
@@ -86,3 +86,7 @@ const dateOptions: object = {
 		</div>
 	</body>
 </html>
+
+<script>
+	import 'flowbite';
+</script>
