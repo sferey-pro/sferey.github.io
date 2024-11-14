@@ -2,20 +2,21 @@
 import type { HTMLAttributes } from 'astro/types';
 import { classNames } from '@lib/classNames';
 
-import { devColorToClassMap, colorToClassMap } from '@configs/ColorPaths';
+import { colorToClassMap, devColorToClassMap, DevTags } from '@configs/ColorPaths';
 
 interface Props {
-	name: string;
-	label: string;
+	name: keyof typeof DevTags;
 	class?: string | undefined | null;
 }
 
 const attrs: HTMLAttributes<'span'> = {};
 
-const { name, label, class: className } = Astro.props;
+const { name, class: className } = Astro.props;
+const devColorPath = colorToClassMap[devColorToClassMap[name]];
 
-const colorPath = colorToClassMap[devColorToClassMap[name]];
 const extraClasses: string[] = ['w-fit text-lg font-medium me-2 px-2.5 py-0.5 rounded no-wrap'];
 ---
 
-<span {...attrs} class={classNames(className, extraClasses, colorPath)}>{label.trim()}</span>
+<span {...attrs} class={classNames(className, extraClasses, devColorPath)}>
+	<slot />
+</span>

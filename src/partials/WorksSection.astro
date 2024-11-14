@@ -3,9 +3,9 @@ import FormattedDate from '@components/FormattedDate.astro';
 import { Icon } from 'astro-icon/components';
 import { getCollection } from 'astro:content';
 
-const workEntries = (await getCollection('work')).sort((a, b) => {
-	return Date.parse(b.data.startedDate) - Date.parse(a.data.startedDate);
-});
+const workEntries = (await getCollection('work')).sort(
+	(a, b) => b.data.startedDate.valueOf() - a.data.startedDate.valueOf(),
+);
 
 const dateOptions: object = {
 	year: 'numeric',

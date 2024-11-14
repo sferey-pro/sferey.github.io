@@ -1,6 +1,5 @@
 ---
 title: 'Abbeal'
-logoImg: '/images/logo/abbeal.svg'
 metadata:
   excerpt: 'ESN : conseil informatique, développement web et mobile, Bzz Bzz'
   job_description: 'Développeur Expérimenté / Lead Développeur'
@@ -20,6 +19,8 @@ tags:
 website: 'https://abbeal.com'
 linkedin: 'https://www.linkedin.com/company/abbeal'
 ---
+
+import { DevTags } from '@configs/ColorPaths';
 
 ## Introduction
 
@@ -45,9 +46,9 @@ Je m’occupais du développement des fonctionnalités liées au panier, couvran
 ### Outils utilisés
 
 <div class="mb-6">
-	<Tag name="zend" label="Zend Expressive" />
-	<Tag name="angular" label="AngularJS" />
-	<Tag name="mysql" label="MySQL" />
+	<Tag name={DevTags.ZEND}>Zend Expressive</Tag>
+	<Tag name={DevTags.ANGULAR}>Angular JS</Tag>
+	<Tag name={DevTags.MYSQL}>MySQL</Tag>
 </div>
 
 ### Challenges
@@ -71,9 +72,9 @@ Il était crucial de garantir que le nouveau site soit robuste, évolutif et cap
 ### Outils utilisés
 
 <div class="mb-6">
-	<Tag name="symfony" label="Symfony 5" />
-	<Tag name="docker" label="Docker" />
-	<Tag name="architecture" label="Clean architecture" />
+	<Tag name={DevTags.SYMFONY}>Symfony 5</Tag>
+	<Tag name={DevTags.DOCKER}>Docker</Tag>
+	<Tag name={DevTags.ARCHITECTURE}>Clean architecture</Tag>
 </div>
 
 ### Challenges
@@ -87,10 +88,10 @@ Mon principal défi était de réaliser un chiffrage réaliste des fonctionnalit
 ### Outils utilisé
 
 <div class="mb-6">
-	<Tag name="symfony" label="Symfony 4 (version LTS)" />
-	<Tag name="docker" label="Docker" />
-	<Tag name="vuejs" label="VueJs" />
-	<Tag name="architecture" label="Clean architecture" />
+	<Tag name={DevTags.SYMFONY}>Symfony 4 (version LTS)</Tag>
+	<Tag name={DevTags.DOCKER}>Docker</Tag>
+	<Tag name={DevTags.VUEJS}>VueJs</Tag>
+	<Tag name={DevTags.ARCHITECTURE}>Clean architecture</Tag>
 </div>
 
 ---
@@ -116,8 +117,8 @@ Enfin, j’étais chargé de réaliser un audit complet de l’infrastructure ex
 ### Outils utilisés
 
 <div class="mb-6">
-	<Tag name="symfony" label="Symfony 2/3/4" />
-	<Tag name="docker" label="Docker" />
-	<Tag name="vuejs" label="VueJs" />
-	<Tag name="architecture" label="Clean architecture" />
+	<Tag name={[DevTags.SYMFONY]}>Symfony 2/3/4</Tag>
+	<Tag name={DevTags.DOCKER}>Docker</Tag>
+	<Tag name={DevTags.VUEJS}>VueJs</Tag>
+	<Tag name={DevTags.ARCHITECTURE}>Clean architecture</Tag>
 </div>

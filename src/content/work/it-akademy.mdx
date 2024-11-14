@@ -1,6 +1,5 @@
 ---
 title: 'IT-Akademy / IPSSI'
-logoImg: '/images/logo/it-akademy.webp'
 metadata:
   excerpt: 'Ecole : informatique, développement web Full Stack, cybersécurité, alternance.'
   job_description: 'Formateur'
@@ -19,7 +18,7 @@ website: 'https://www.it-akademy.fr/'
 linkedin: 'https://www.linkedin.com/school/it-akademy'
 ---
 
-import { Icon } from 'astro-icon/components';
+import { DevTags } from '@configs/ColorPaths';
 
 ## Introduction
 
@@ -39,15 +38,15 @@ En plus de cela, j’ai mis au point un système de ghosting qui permettait aux 
 ## Outils utilisés
 
 <div class="mb-6">
-	<Tag name="symfony" label="Symfony" />
-	<Tag name="docker" label="Docker" />
-	<Tag name="zend" label="Zend" />
-	<Tag name="ionic" label="Ionic" />
-	<Tag name="vagrant" label="Vagrant" />
-	<Tag name="angular" label="AngularJS" />
-	<Tag name="mysql" label="MySQL" />
-	<Tag name="laravel" label="Laravel" />
-	<Tag name="architecture" label="Pédagogie" />
+	<Tag name={DevTags.SYMFONY}>Symfony</Tag>
+	<Tag name={DevTags.DOCKER}>Docker</Tag>
+	<Tag name={DevTags.ZEND}>Zend</Tag>
+	<Tag name={DevTags.IONIC}>Ionic</Tag>
+	<Tag name={DevTags.VAGRANT}>Vagrant</Tag>
+	<Tag name={DevTags.ANGULAR}>AngularJS</Tag>
+	<Tag name={DevTags.MYSQL}>MySQL</Tag>
+	<Tag name={DevTags.LARAVEL}>Laravel</Tag>
+	<Tag name={DevTags.ARCHITECTURE}>Pédagogie</Tag>
 </div>
 
 ## Challenges

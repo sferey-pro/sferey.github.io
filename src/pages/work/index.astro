@@ -4,9 +4,10 @@ import Footer from '@components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '@consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '@components/FormattedDate.astro';
-import Tags from '@components/Work/Tags.astro';
+import Tags from '@components/Tags.astro';
 import Navigation from '@components/Navigation.astro';
 import BreadCrumbs from '@components/BreadCrumbs.astro';
+import { ColorTags } from '@configs/ColorPaths';
 
 const workEntries = (await getCollection('work')).sort(
 	(a, b) => b.data.startedDate.valueOf() - a.data.startedDate.valueOf(),
@@ -30,14 +31,13 @@ const dateOptions: object = {
 				class="container mx-auto flex min-h-screen max-w-screen-lg flex-grow flex-col px-5 py-8 md:px-12 lg:px-20"
 			>
 				<main transition:animate="fade">
-					<BreadCrumbs title="Parcours" parentLink="/" />
+					<BreadCrumbs title="Parcours" />
 					<section class="px-4 2xl:px-0">
 						<ul>
 							{
 								workEntries.map((workEntry) => (
 									<li class="group mb-10 ms-4">
 										<a
-											disabled="disabled"
 											href={`/work/${workEntry.slug}`}
 											class="flex flex-col items-center rounded-lg border-b-2 border-gray-200 border-b-accent bg-white shadow hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-900 md:flex-row"
 										>
@@ -68,12 +68,10 @@ const dateOptions: object = {
 													{workEntry.data.metadata.excerpt}
 												</p>
 												<div class="flex">
-													{workEntry.data.tags.map((tag) => (
-														<Tags
-															label={tag}
-															class="mb-4 me-4 bg-back-primary text-fore-primary md:me-6"
-														/>
-													))}
+													{workEntry.data.tags &&
+														workEntry.data.tags.map((tag) => (
+															<Tags color={ColorTags.NEUTRAL}>{tag}</Tags>
+														))}
 												</div>
 											</div>
 										</a>

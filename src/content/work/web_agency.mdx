@@ -1,6 +1,5 @@
 ---
 title: 'Mes premières agences'
-logoImg: '/images/logo/default.png'
 metadata:
   excerpt: 'Le début de ma carrière'
   job_description: 'Développeur Junior'
@@ -12,19 +11,20 @@ tags:
 disabled: true
 ---
 
+import { DevTags } from '@configs/ColorPaths';
 import { Image } from 'astro:assets';
-import mes_premieres_agences from '@assets/images/mes_premieres_agences.png';
+import web_agency from '@assets/images/work/web_agency.png';
 
 > Mes expériences professionnelles datant de plus de 10 ans ne sont pas détaillées dans ce portfolio car elles ne sont plus pertinentes pour mon parcours actuel et mes objectifs professionnels.
 
 ## Outils utilisés
 
 <div class="mb-6">
-	<Tag name="zend" label="Zend Framework" />
-	<Tag name="other" label="Wordpress" />
-	<Tag name="html" label="Html" />
-	<Tag name="css" label="CSS" />
-	<Tag name="other" label="jQuery" />
+	<Tag name={DevTags.ZEND}>Zend Framework</Tag>
+	<Tag name={DevTags.OTHER}>Wordpress</Tag>
+	<Tag name={DevTags.HTML}>Html</Tag>
+	<Tag name={DevTags.CSS}>CSS</Tag>
+	<Tag name={DevTags.OTHER}>jQuery</Tag>
 </div>
 
-<Image src={mes_premieres_agences} alt="Le début" class="shadow shadow-lg shadow-black" />
+<Image src={web_agency} alt="Le début" class="shadow shadow-lg shadow-black" />

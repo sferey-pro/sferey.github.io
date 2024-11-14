@@ -1,6 +1,5 @@
 ---
 title: 'OSPI (Groupe PSIH)'
-logoImg: '/images/logo/ospi.png'
 metadata:
   excerpt: 'Entreprise : logiciels décisionnels santé, pilotage établissements, données réelles.'
   job_description: 'Développeur Sénior'
@@ -17,8 +16,7 @@ website: 'https://ospi.fr'
 linkedin: 'https://www.linkedin.com/company/ospi-care/'
 ---
 
-import Tags from '@components/Tags.astro';
-import { ColorTags } from '@configs/ColorPaths';
+import { DevTags } from '@configs/ColorPaths';
 
 ## Introduction
 
@@ -43,10 +41,10 @@ J’ai également travaillé sur la refonte du logiciel principal de génératio
 ## Outils utilisés
 
 <div class="mb-6">
-	<Tag name="docker" label="Docker" />
-	<Tag name="symfony" label="Symfony 6" />
-	<Tag name="mariadb" label="MariaDB" />
-	<Tag name="vuejs" label="VueJs" />
+	<Tag name={DevTags.DOCKER}>Docker</Tag>
+	<Tag name={DevTags.SYMFONY}>Symfony 6</Tag>
+	<Tag name={DevTags.MARIADB}>MariaDB</Tag>
+	<Tag name={DevTags.VUEJS}>VueJs</Tag>
 </div>
 
 ## Challenges

@@ -2,16 +2,14 @@
 interface Props {
 	date: Date;
 	class?: string | undefined | null;
-	options?: {
-		year?: string;
-		month?: string;
-		day?: string;
-	};
+	options?: Intl.DateTimeFormatOptions;
 }
 
 const {
 	date,
-	options = { year: 'numeric', month: 'short', day: 'numeric' },
+	options = {
+		dateStyle: 'medium',
+	},
 	class: className,
 	...props
 } = Astro.props;

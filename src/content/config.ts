@@ -11,20 +11,11 @@ const blog = defineCollection({
 	}),
 });
 
-const authors = defineCollection({
-	type: 'data',
-	schema: z.object({
-		name: z.string(),
-		avatar: z.string().url(),
-	}),
-});
-
 const work = defineCollection({
 	type: 'content',
 	schema: () =>
 		z.object({
 			title: z.string(),
-			logoImg: z.string(),
 			metadata: z.object({
 				job_description: z.string(),
 				excerpt: z.string().optional(),
@@ -38,4 +29,4 @@ const work = defineCollection({
 		}),
 });
 
-export const collections = { blog, authors, work };
+export const collections = { blog, work };

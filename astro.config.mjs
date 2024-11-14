@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, passthroughImageService } from 'astro/config';
 
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
@@ -14,7 +14,18 @@ export default defineConfig({
 		port: 4321,
 		host: true,
 	},
-	integrations: [tailwind({ applyBaseStyles: false }), mdx(), icon()],
+	image: {
+		service: passthroughImageService(), // Disabled optimized Image https://github.com/withastro/astro/issues/9966
+	},
+	integrations: [
+		tailwind({
+			applyBaseStyles: false,
+		}),
+		mdx({
+			optimize: true,
+		}),
+		icon(),
+	],
 	markdown: {
 		syntaxHighlight: false,
 		remarkPlugins: [
