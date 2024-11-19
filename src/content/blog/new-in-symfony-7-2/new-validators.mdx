@@ -1,0 +1,106 @@
+---
+title: 'Nouveautés sur les composants Validator'
+description: 'Nouveautés sur les composants Validator'
+pubDate: '2024-11-03'
+tags: ['symfony', 'news']
+---
+
+import { Icon } from 'astro-icon/components';
+
+Symfony 7.2 introduit trois nouvelles contraintes de validation.
+
+## Contrainte Week
+
+La contrainte vérifie qu’une chaîne représente un numéro de semaine valide selon la norme [<Icon name="mdi:wikipedia" size="1.5em" class="border rounded-md p-1 bg-white inline"/> ISO-8601](https://en.wikipedia.org/wiki/ISO_8601).
+
+S'adapte avec la balise HTML `<input type="week">`
+
+<img class="m-auto" src="/images/new-in-symfony-7-2/new-validators/week-control-chrome.png" />
+
+```php
+// src/Entity/OnlineCourse.php
+<?php
+namespace App\Entity;
+
+use Symfony\Component\Validator\Constraints as Assert;
+
+class OnlineCourse
+{
+    #[Assert\Week(min: '2022-W01', max: '2022-W20')]
+    protected string $startWeek;
+}
+```
+
+- Cela permet de vérifier que la semaine existe dans l'année donnée.
+
+[Symfony Docs](https://symfony.com/doc/7.2/reference/constraints/Week.html)
+
+## Contrainte WordCount
+
+La contrainte s’assure qu’une chaîne contient un nombre de mots compris dans une plage définie dans une langue défini.
+
+```php
+// src/Entity/BlogPostDTO.php
+<?php
+namespace App\Entity;
+
+use Symfony\Component\Validator\Constraints as Assert;
+
+class BlogPostDTO
+{
+    #[Assert\WordCount(min: 100, max: 200)]
+    protected string $content;
+}
+```
+
+- Par défaut, la contrainte utilise les paramètres régionaux de l'application ou l'utilisateur.
+
+[Symfony Docs](https://symfony.com/doc/7.2/reference/constraints/WordCount.html)
+
+## Contrainte Yaml
+
+La contrainte s'assure que le contenant soit du Yaml valide suivant la syntax [<Icon name="mdi:wikipedia" size="1.5em" class="border rounded-md p-1 bg-white inline"/> YAML](https://en.wikipedia.org/wiki/YAML)
+
+```php
+// src/Entity/Report.php
+<?php
+namespace App\Entity;
+
+use Symfony\Component\Validator\Constraints as Assert;
+
+class Report
+{
+    #[Assert\Yaml(
+        message: "Your configuration doesn't have valid YAML syntax."
+    )]
+    private string $customConfiguration;
+}
+```
+
+[Symfony Docs](https://symfony.com/doc/7.2/reference/constraints/Yaml.html)
+
+## Make PasswordStrengthValidator::estimateStrength() public
+
+La méthode estimateStrength() du validateur PasswordStrengthValidator permet d'évaluer la force d'un mot de passe.
+Elle utilise des critères tels que la longueur du mot de passe et la diversité des caractères pour calculer un score de force.
+
+### Pourquoi la Rendre Publique ?
+
+**Accessibilité** : En rendant cette méthode publique, les développeurs peuvent l'utiliser directement dans leur code pour évaluer la force des mots de passe sans avoir à passer par le processus de validation complet.
+
+**Flexibilité** : Cela permet d'intégrer facilement cette évaluation dans différentes parties de l'application, par exemple lors de la création de comptes utilisateurs ou lors de la modification de mots de passe.
+
+**Réutilisabilité** : Les développeurs peuvent réutiliser cette méthode pour fournir des retours en temps réel aux utilisateurs sur la force de leur mot de passe lors de la saisie, améliorant ainsi l'expérience utilisateur.
+
+### Exemple d'Utilisation
+
+```php
+use Symfony\Component\Validator\Constraints\PasswordStrengthValidator;
+
+$password = 'MonMotDePasse123!'
+$strength = PasswordStrengthValidator::estimateStrength($password);
+
+echo "La force du mot de passe est : " . $strength;
+```
+
+[Documentation](https://symfony.com/doc/7.2/reference/constraints/PasswordStrength.html#customizing-the-password-strength-estimation)

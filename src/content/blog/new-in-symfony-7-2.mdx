@@ -1,0 +1,40 @@
+---
+title: 'Nouveauté de Symfony'
+description: 'Un récapitulatif des nouveautés Symfony 7.2'
+pubDate: '2024-11-03'
+heroImage: '/images/cover_new-in-symfony-7-2.png'
+tags: ['symfony', 'news']
+---
+
+# Table of contents
+
+# Introduction
+
+Pour inaugurer cette série d'articles, je vous propose un tour d'horizon des nouveautés de Symfony 7.2 sur les composants que j'ai l'habitude de travailler.
+
+Cet article présente une sélection de points clés issus du Changelog 7.2.
+
+Mon objectif est de vous fournir un aperçu concis et pertinent des améliorations et des nouvelles fonctionnalités de cette version, afin de vous aider à rester à jour avec les dernières avancées de ce framework.
+
+## Nouveaux Attributs
+
+    - `#[WhenNot]` qui est l'opposé de `#[When]`
+    - `#[AsMessage]` qui permet une configuration directement dans la classe de votre Message.
+
+[Mon article dédié](new-attributes)
+
+## Nouveautés sur le composant Validator
+
+Nouveaux Validator :
+
+    - `Week` pour répondre à la validation d'un `<input type="week">`, afin de valider qu'une semaine est OK
+    - `WordCount` pour compté le nombre de mot suivant une langue?
+    - `Yaml` pour valider une configuration écrit en YAML
+
+Améliorations de la contrainte `Compound` - Tests de contraintes composés plus facilités - Ajout dans le constructeur des donnèes `$payload` et `$groups`
+
+Estimer la force d'un password avec `PasswordStrengthValidator`.
+
+[Mon article dédié](new-validators)
+
+## Amélioration du composant String (à venir)

@@ -37,3 +37,11 @@ body {
 }
 
 /* End Theme Classes */
+
+/* Custom Classes */
+
+.expressive-code {
+	@apply mb-5;
+}
+
+/* End Custom Classes */

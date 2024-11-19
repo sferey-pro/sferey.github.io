@@ -7,6 +7,9 @@ import remarkToc from 'remark-toc';
 
 import icon from 'astro-icon';
 
+import expressiveCode from 'astro-expressive-code';
+import rehypeExternalLinks from 'rehype-external-links';
+
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://sferey.com',
@@ -18,6 +21,7 @@ export default defineConfig({
 		service: passthroughImageService(), // Disabled optimized Image https://github.com/withastro/astro/issues/9966
 	},
 	integrations: [
+		expressiveCode(),
 		tailwind({
 			applyBaseStyles: false,
 		}),
@@ -31,5 +35,6 @@ export default defineConfig({
 		remarkPlugins: [
 			[remarkToc, { heading: 'table of contents', maxDepth: 3, skip: 'Introduction' }],
 		],
+		rehypePlugins: [[rehypeExternalLinks, { rel: 'nofollow', target: '_blank' }]],
 	},
 });

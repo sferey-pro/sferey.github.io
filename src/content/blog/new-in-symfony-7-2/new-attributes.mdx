@@ -1,0 +1,87 @@
+---
+title: 'Nouveaux attributs'
+description: 'Nouveaux attributs #[AsMessage] && #[WhenNot]'
+pubDate: '2024-11-20'
+tags: ['symfony', 'news']
+---
+
+import { Icon } from 'astro-icon/components';
+
+Pour rappel, les attributs permettent d'ajouter des informations de métadonnées structurées et lisibles par la machine sur les déclarations dans le code:
+les classes, les méthodes, les fonctions, les paramètres, les propriétés et les constantes de classe peuvent être la cible d'un attribut.
+
+## `#[AsMessage]`
+
+Dans mes projets professionnels ou personnels, j'ai souvent implémenté des solutions pour simplifier la gestion des messages dans Symfony.
+
+Avant l'introduction de cette fonctionnalité, je gérais la configuration des messages de manière similaire.
+J'avais souvent créé moi-même cet attribut `#[AsMessage]`, ce qui rendait mon code plus clair et plus facile à maintenir.
+
+Désormais, cette fonctionnalité est intégrée dans Symfony 7.2 ❤️
+
+### Exemple d'Utilisation
+
+```php
+// src/Message/SmsNotification.php
+<?php
+namespace App\Message;
+
+use Symfony\Component\Messenger\Attribute\AsMessage;
+
+#[AsMessage('async')]
+class SmsNotification
+{
+    // ...
+}
+```
+
+Dans cet exemple, le message SomeNotification est configuré pour être envoyé au transport nommé `async` directement via l'attribut `#[AsMessage]`.
+
+### Avantages de l'attribut
+
+**Simplicité** : Réduit la complexité en centralisant la configuration des messages dans la classe de message elle-même.
+
+**Flexibilité** : Permet de spécifier plusieurs transports si nécessaire, par exemple `#[AsMessage(['async', 'audit'])]`.
+
+_Petit plus_ : Si une configuration est définie à la fois dans le fichier YAML/XML et via l'attribut PHP, la configuration dans le fichier prend la priorité.
+Cela permet de surcharger les configurations par environnement.
+
+<hr />
+
+## `#[WhenNot]`
+
+L'attribut `#[WhenNot]` introduit dans Symfony 7.2 est une fonctionnalité utile pour gérer la configuration des services en fonction des environnements.
+C'est l'opposé de l'attribut `#[When]`, qui inclut un service uniquement dans certains environnements.
+
+### Exemple d'Utilisation
+
+```php
+use Symfony\Component\DependencyInjection\Attribute\WhenNot;
+
+#[WhenNot(env: 'dev')]
+class SomeService
+{
+    // ...
+}
+
+```
+
+Dans cet exemple, SomeService ne sera pas enregistré comme service dans l'environnement dev.
+Tu peux également exclure un service de plusieurs environnements en ajoutant plusieurs fois l'attribut #[WhenNot] :
+
+```php
+use Symfony\Component\DependencyInjection\Attribute\WhenNot;
+
+#[WhenNot(env: 'dev')]
+#[WhenNot(env: 'test')]
+class AnotherService
+{
+    // ...
+}
+```
+
+### Avantages de l'attribut
+
+**Simplicité** : Facilite la gestion des services en fonction des environnements sans avoir à modifier les fichiers de configuration.
+
+**Flexibilité** : Permet de définir des règles d'exclusion précises pour différents environnements.
