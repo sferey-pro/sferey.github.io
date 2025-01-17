@@ -35,14 +35,17 @@ export const site = {
 		{
 			title: 'Accueil',
 			href: '/',
+			visible: true,
 		},
 		{
 			title: 'Blog',
 			href: '/blog',
+			visible: false,
 		},
 		{
 			title: 'Parcours',
 			href: '/work',
+			visible: true,
 		},
 	],
 };

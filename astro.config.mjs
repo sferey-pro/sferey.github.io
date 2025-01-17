@@ -12,7 +12,7 @@ import rehypeExternalLinks from 'rehype-external-links';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://sferey.com',
+	site: 'https://sferey.github.io',
 	server: {
 		port: 4321,
 		host: true,
