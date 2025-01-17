@@ -31,4 +31,4 @@ const work = defineCollection({
 		}),
 });
 
-export const collections = { work };
+export const collections = { blog, work };
