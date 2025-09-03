@@ -19,7 +19,7 @@ export const info = {
 	socials: {
 		github: {
 			name: 'Siniliote',
-			href: 'https://github.com/Siniliote',
+			href: 'https://github.com/sferey-pro',
 		},
 		linkedin: {
 			name: 'sferey',

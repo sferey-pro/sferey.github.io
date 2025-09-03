@@ -3,13 +3,14 @@ import { Icon } from 'astro-icon/components';
 
 interface Props {
 	resume?: string;
+	technique?: string;
 	email?: string;
 	github?: string;
 	website?: string;
 	linkedin?: string;
 }
 
-const { resume, email, github, website, linkedin } = Astro.props;
+const { resume, technique, email, github, website, linkedin } = Astro.props;
 ---
 
 <div class="flex items-center justify-center lg:justify-start">
@@ -25,6 +26,22 @@ const { resume, email, github, website, linkedin } = Astro.props;
 					<Icon name="mdi:scroll-text-outline" size="1.5em" />
 				</span>
 				Curriculum Vitae
+			</a>
+		)
+	}
+
+	{
+		technique && (
+			<a
+				href={technique}
+				target="_blank"
+				rel="noreferrer"
+				class="mr-4 flex w-fit cursor-pointer items-center rounded border-2 border-accent px-4 py-1 text-fore-primary transition-colors hover:bg-accent hover:text-white"
+			>
+				<span class="mr-2">
+					<Icon name="mdi:tools" size="1.5em" />
+				</span>
+				Dossier technique
 			</a>
 		)
 	}

@@ -23,8 +23,8 @@ const { heading, subHeading, avatar } = Astro.props;
 		<h2 class="mb-4 max-w-lg">
 			{subHeading || <slot name="subHeading" />}
 		</h2>
+		<Socials resume="/assets/CV_FEREY.pdf" technique="/assets/DT_FEREY.pdf" />
 		<Socials
-			resume="/assets/CV_FEREY.pdf"
 			email={info.contact.email}
 			github={info.socials.github.name}
 			linkedin={info.socials.linkedin.name}
